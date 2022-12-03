@@ -1,0 +1,34 @@
+# Autor: Terrones Lopez Juan Alberto
+# Número de Control : 18240494
+# Laboratorio para el Despliegue de Aplicaciones Empresariales
+# Grupo 8:45 am
+apiVersion: apps/v1                          
+kind: Deployment                                      #Tipo de objeto 
+metadata:
+  name: deployment-mysql                              #Nombre del depliegue
+  labels:
+    app: db                             
+spec:
+  selector:                                           #selecciona un conjunto de objetos
+    matchLabels:                              
+      app: db                                         #etiquetas que coincidan
+      tier: deployment-mysql
+  replicas: 1                                 
+  template:                                   
+    metadata:
+      labels:
+        app: db                                       #Etiqueta de la base de datos
+        tier: deployment-mysql                        #etiqueta de nivel      
+    spec:
+      containers:                             
+      - name: db-mysql                                #nombre del contenedor
+        image: johnnyterryl/my-sql:1.0                #Imagen de la base de datos Mysql
+        ports:                                
+        - containerPort: 3306                         #puerto
+        volumeMounts:                         
+        - name: master-persistent-storage
+          mountPath: /var/lib/mysql
+      volumes:
+        - name: master-persistent-storage
+          persistentVolumeClaim:
+            claimName: master-vol-persis-claim 

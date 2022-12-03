@@ -1,0 +1,22 @@
+# Autor: Terrones Lopez Juan Alberto
+# Número de Control : 18240494
+# Laboratorio para el Despliegue de Aplicaciones Empresariales
+# Grupo 8:45 am
+apiVersion: networking.k8s.io/v1                    
+kind: Ingress                                           #Tipo de objeto
+metadata:
+  name: ingress-jterrones                               #Nombre
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /       #rewrite (tipo de acciob)
+spec:
+  rules:
+  - host: app.jterrones.com                             #Nombre del host           
+    http: 
+      paths:
+      - path: /
+        pathType: Prefix                                #Prefijo de la ruta a ingresar          
+        backend:
+          service:
+            name: www-svc                               #nombre del servicio de la Api-Rest
+            port:
+              number: 80                                #Puerto 

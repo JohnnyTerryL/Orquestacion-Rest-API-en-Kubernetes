@@ -1,0 +1,26 @@
+# Autor: Terrones Lopez Juan Alberto
+# Número de Control : 18240494
+# Laboratorio para el Despliegue de Aplicaciones Empresariales
+# Grupo 8:45 am
+apiVersion: apps/v1                               
+kind: Deployment                                #Tipo de objeto
+metadata:
+  name: deployment-www                          #Nombre del depliegue
+  labels:
+    app: reticula          
+spec:
+  selector:                                     #selecciona un conjunto de objetos
+    matchLabels:                
+      app: reticula                             #etiquetas que coincidan
+      tier: deployment-www             
+  replicas: 7	                                  #numero de replicaciones
+  template:		                
+    metadata:
+      labels:
+        app: reticula                           #etiqueta app
+        tier: deployment-www                    #etiqueta de nivel
+    spec:
+      containers:
+      - name: reticula                          #nombre del contenedor
+        image: johnnyterryl/www:1.0             #imagen del contenedor
+               

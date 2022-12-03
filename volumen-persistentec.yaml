@@ -1,0 +1,15 @@
+# Autor: Terrones Lopez Juan Alberto
+# Número de Control : 18240494
+# Laboratorio para el Despliegue de Aplicaciones Empresariales
+# Grupo 8:45 am
+apiVersion: v1                          
+kind: PersistentVolumeClaim                     #Tipo de objeto
+metadata:
+  name: master-vol-persis-claim                 #Nombre  
+spec:
+  storageClassName: masterfiles                 #etiqueta de tipo
+  accessModes: 
+    - ReadWriteOnce                             #acceso de lectura y escritura
+  resources:
+    requests:
+      storage: 5Gi                              #almacenamiento

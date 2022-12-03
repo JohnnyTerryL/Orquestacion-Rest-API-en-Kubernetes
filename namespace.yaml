@@ -1,0 +1,10 @@
+# Autor: Terrones Lopez Juan Alberto
+# Número de Control : 18240494
+# Laboratorio para el Despliegue de Aplicaciones Empresariales
+# Grupo 8:45 am
+apiVersion: v1         
+kind: Namespace                     #Espacio de nombres
+metadata:
+    name: jterrones                 #nombre del espacio
+    labels:
+      tipo: orquesta                #etiqueta de tipo

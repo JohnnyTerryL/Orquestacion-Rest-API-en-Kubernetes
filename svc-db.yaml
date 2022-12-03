@@ -1,0 +1,18 @@
+# Autor: Terrones Lopez Juan Alberto
+# Número de Control : 18240494
+# Laboratorio para el Despliegue de Aplicaciones Empresariales
+# Grupo 8:45 am
+apiVersion: v1                   
+kind: Service                               #Tipo de objeto
+metadata:
+  name: db                                  #nombre
+  labels:                        
+    app: db                                 #MISMOS LABELS QUE EL DEPLOY  
+    tier: deployment-mysql  
+spec:
+  ports:                         
+  - port: 3306                              #Puerto
+    targetPort: 3306
+  selector:                      
+    app: db                                 #MISMOS LABELS QUE EL DEPLOY
+    tier: deployment-mysql

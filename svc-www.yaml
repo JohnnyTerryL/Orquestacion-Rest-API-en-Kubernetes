@@ -1,0 +1,18 @@
+# Autor: Terrones Lopez Juan Alberto
+# Número de Control : 18240494
+# Laboratorio para el Despliegue de Aplicaciones Empresariales
+# Grupo 8:45 am
+apiVersion: v1                 
+kind: Service                           #tipo de objeto
+metadata:
+  name: www-svc                         #nombre del servicio
+  labels:
+    app: reticula                       #MISMOS LABELS QUE EL DEPLOY
+    tier: deployment-www
+spec:
+  type: NodePort                        #tipo de carga 
+  ports:    
+  - port: 80                            #Puerto
+  selector:                     
+    app: reticula                       #MISMOS LABELS QUE EL DEPLOY
+    tier: deployment-www

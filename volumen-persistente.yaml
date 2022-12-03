@@ -1,0 +1,18 @@
+# Autor: Terrones Lopez Juan Alberto
+# Número de Control : 18240494
+# Laboratorio para el Despliegue de Aplicaciones Empresariales
+# Grupo 8:45 am
+apiVersion: v1                           
+kind: PersistentVolume                          #tipo de objeto 
+metadata:
+  name: master-vol-persis                       #nombre  
+  labels:
+    type: local                                 #etiqueta de tipo
+spec:
+  storageClassName: masterfiles                 #nombre de la clase
+  capacity:
+    storage: 5Gi                                #capacidad de Gigas
+  accessModes:
+    - ReadWriteOnce                             #Modo de acceso Lectura-Escritura
+  hostPath:
+    path: "/master"                             #Ubicacion
